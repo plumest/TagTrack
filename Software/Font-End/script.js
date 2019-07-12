@@ -45,11 +45,14 @@ function checkUser() {
     let wrong = true;
     
     Object.keys(userData).forEach((item) => {
-        console.log('item = ', item)
-        console.log('id = ', id)
-        if ((id === userData[item].username) && (pwd === userData[item].password)) {
-
-            window.location.href = '../index.html';
+        if (id === userData[item].username) {
+            if (pwd === userData[item].password) {
+                localStorage.setItem('id' , item);
+                let something = localStorage.getItem('id');
+                console.log(something)
+                window.location.href = '../index.html';
+                
+            }
         }
     })
 
@@ -57,4 +60,16 @@ function checkUser() {
         // document.getElementById('error').innerText = 'username or password incorrect';
         document.getElementById('username').setCustomValidity('Username or password Incorrect')
     }
+}
+
+function sentData (name='abcabc1234') {
+
+    let userInfo = userData[name];
+    document.getElementById('logName').innerText = `:  ${userInfo.firstname} ${userInfo.lastname}`;
+    document.getElementById('logAge').innerText = `:  ${userInfo.age}`;
+    document.getElementById('logSex').innerText = `:  ${userInfo.sex}`;
+    document.getElementById('logBlood').innerText = `:  ${userInfo.blood}`;
+    document.getElementById('logAllergic').innerText = `:  ${userInfo.allergic}`;
+    document.getElementById('logPhobia').innerText = `:  ${userInfo.phobia}`;
+    document.getElementById('logOther').innerText = `:  ${userInfo.other}`;
 }
