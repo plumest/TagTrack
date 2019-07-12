@@ -20,40 +20,44 @@
         <h1 class="regis mt-3"><strong>Register</strong></h1>
         <form>
                 <div class="form-group mt-3" action="/TagTrack/Software/index.html">
-                        <label for="Email1"></label>
-                        <input type="text" class="form-control" required id="Email1" aria-describedby="emailHelp" placeholder="User name">
+                        <label for="username"></label>
+                        <input type="text" class="form-control" required id="username" aria-describedby="emailHelp" placeholder="Username">
                       </div>
                       <div class="form-group">
-                        <label for="Password1"></label>
-                        <input type="password" class="form-control" required id="Password1" placeholder="Password">
+                        <label for="password"></label>
+                        <input type="password" class="form-control" required id="password" placeholder="Password">
+                      </div>
+                      <div class="form-group">
+                        <label for="confirm_password"></label>
+                        <input type="password" class="form-control" placeholder="Confirm Password" id="confirm_password" required>
                       </div>
                 <div class="row">
                         <div class="col">
-                          <input type="text" class="form-control mt-3" required placeholder="First name">
+                          <input type="text" class="form-control mt-3" required id="firstname" placeholder="First name">
                         </div>
                         <div class="col">
-                          <input type="text" class="form-control mt-3" required placeholder="Last name">
+                          <input type="text" class="form-control mt-3" required id="lastname" placeholder="Last name">
                         </div>
                       </div>
                 <div class="form-group">
-                  <label for="ControlInput1"></label>
-                  <input type="email" class="form-control mt-3 mb-3" required id="ControlInput1" placeholder="Email@gmail.com">
+                  <label for="email"></label>
+                  <input type="email" class="form-control mt-3 mb-3" required id="email" placeholder="Email@gmail.com">
                   <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div class="form-group">
-                  <label for="ControlSelect1"></label>
-                  <input type="text" class="form-control" required id="ControlInput1" placeholder="Age">
+                  <label for="age"></label>
+                  <input type="text" class="form-control" required id="age" placeholder="Age">
                 </div>
                 <div class="form-group">
-                        <label for="ControlSelect1"></label>
-                        <select class="form-control" required id="ControlSelect1" aria-placeholder="Gender">
+                        <label for="sex"></label>
+                        <select class="form-control" required id="sex" aria-placeholder="Gender">
                           <option>Male</option>
                           <option>Female</option>
                         </select>
                 </div>
                 <div class="form-group">
-                        <label for="ControlSelect1"></label>
-                        <select class="form-control" required id="ControlSelect1">
+                        <label for="blood"></label>
+                        <select class="form-control" required id="blood">
                           <option>A</option>
                           <option>B</option>
                           <option>AB</option>
@@ -61,16 +65,16 @@
                         </select>
                 </div>
                 <div class="form-group">
-                        <label for="ControlSelect1"></label>
-                        <input type="text" class="form-control" required id="ControlInput1" placeholder="Allergic Information">
+                        <label for="allergic"></label>
+                        <input type="text" class="form-control" id="allergic" placeholder="Allergic Information">
                 </div>
                 <div class="form-group">
-                        <label for="ControlSelect1"></label>
-                        <input type="text" class="form-control" required id="ControlInput1" placeholder="Phobia">
+                        <label for="phobia"></label>
+                        <input type="text" class="form-control" required id="phobia" placeholder="Phobia">
                 </div>
                 <div class="form-group">
-                  <label for="ControlTextarea1"></label>
-                  <textarea class="form-control" id="ControlTextarea1" rows="3" placeholder="Other Information"></textarea>
+                  <label for="other"></label>
+                  <textarea class="form-control" id="other" rows="3" placeholder="Other Information"></textarea>
                 </div>
                 <input type="submit" value="submit" class="btn btn-primary"></input>
               </form>
@@ -83,8 +87,8 @@
 
 
 
-
-    <script src="script.js"></script>
+  <script src="password.js"></script>
+  <script src="script.js"></script>
   <script src="Back-End/server.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
