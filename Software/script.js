@@ -22,8 +22,6 @@ google.charts.load('current', {
 google.charts.setOnLoadCallback(drawBasic);
 
 
-
-
 function drawBasic() {
 
   let data = new google.visualization.DataTable();

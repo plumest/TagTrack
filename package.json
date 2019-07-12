@@ -1,0 +1,19 @@
+{
+  "name": "tagtrack",
+  "version": "1.0.0",
+  "description": "**By Jitrada Group**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plumest/TagTrack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/plumest/TagTrack/issues"
+  },
+  "homepage": "https://github.com/plumest/TagTrack#readme"
+}
