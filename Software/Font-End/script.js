@@ -47,7 +47,7 @@ function checkUser() {
     Object.keys(userData).forEach((item) => {
         if (id === userData[item].username) {
             if (pwd === userData[item].password) {
-                wrong = false;
+                // wrong = false;
                 window.location.href = '../index.html';
             }
         }
