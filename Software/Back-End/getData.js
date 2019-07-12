@@ -1,4 +1,4 @@
-const fs = require('fs');
+// const fs = require('fs');
 
 function getHeartList(index=0, heartrate=0) {
     return [index, heartrate]
@@ -16,23 +16,49 @@ setInterval(() => {
     document.getElementById('test').innerHTML = sec;
 }, 1000)
 
-let data_tested = {
+let userData = {
     'abcabc1234': {
         'username': 'abcabc1234',
         'password': '1234',
-        'firstname': 'abcabc',
-        'lastname': '1234',
+        'firstname': 'Abc',
+        'lastname': 'Abc',
         'email': 'abcabc1234@hotmail.com',
         'age': '20',
-        'sex': 'male',
+        'sex': 'Male',
         'blood': 'B',
+        'allergic': '',
+        'phobia': 'hemophobia',
+        'other': ''
+    },
+    'hello555':{
+        'username': 'hello555',
+        'password': '555',
+        'firstname': 'Hel',
+        'lastname': 'Lo',
+        'email': 'hello555@gmail.com',
+        'age': '25',
+        'sex': 'Male',
+        'blood': 'AB',
+        'allergic': '',
+        'phobia': 'arophobia',
+        'other': ''
+    },
+    'sofee777':{
+        'username': 'sofee777',
+        'password': '777',
+        'firstname': 'Sofee',
+        'lastname': 'Seven',
+        'email': 'sososo@ku.th',
+        'age': '19',
+        'sex': 'Female',
+        'blood': 'O',
         'allergic': '',
         'phobia': 'hemophobia',
         'other': ''
     }
 }
 
-fs.appendFile('abcabc1234', data_tested, (err, fd) => {
-    if (err) throw err;
-    console.log('sucess')
-})
+// fs.appendFile('abcabc1234', data_tested, (err, fd) => {
+//     if (err) throw err;
+//     console.log('sucess')
+// })
