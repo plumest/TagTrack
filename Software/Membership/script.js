@@ -36,8 +36,17 @@ $('.form').find('input, textarea').on('keyup blur focus', function (e) {
     
     target = $(this).attr('href');
   
-    $('.tab-content > div').not(target).hide();
+    // console.log(target)
+    // $('.tab-content > div').not(target).hide();
+    // $('.tab-content > div').is(target).show();
+    if(target === '#login') {
+      document.getElementById('login').style.display = 'block';
+      document.getElementById('signup').style.display = 'none';
+    } else {
+      document.getElementById('signup').style.display = 'block';
+      document.getElementById('login').style.display = 'none';
+    }
     
-    $(target).fadeIn(600);
+    // $(target).fadeIn(600);
     
   });
