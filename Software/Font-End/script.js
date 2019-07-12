@@ -43,13 +43,13 @@ function checkUser() {
         }
     }
     let wrong = true;
-
+    
     Object.keys(userData).forEach((item) => {
-        if (id === userData[item].username) {
-            if (pwd === userData[item].password) {
-                wrong = false;
-                window.location.href = '../index.html';
-            }
+        console.log('item = ', item)
+        console.log('id = ', id)
+        if ((id === userData[item].username) && (pwd === userData[item].password)) {
+
+            window.location.href = '../index.html';
         }
     })
 
