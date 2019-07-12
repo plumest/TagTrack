@@ -74,4 +74,4 @@ function sentData (name='abcabc1234') {
     document.getElementById('logPhobia').innerText = `:  ${userInfo.phobia}`;
     document.getElementById('logOther').innerText = `:  ${userInfo.other}`;
 }
-sentData()
+// sentData()
