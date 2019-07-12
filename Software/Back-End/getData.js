@@ -11,10 +11,10 @@ function getData () {
     return data
 }
 
-setInterval(() => {
-    let sec = new Date().getSeconds();
-    document.getElementById('test').innerHTML = sec;
-}, 1000)
+// setInterval(() => {
+//     let sec = new Date().getSeconds();
+//     document.getElementById('test').innerHTML = sec;
+// }, 1000)
 
 let userData = {
     'abcabc1234': {
@@ -62,3 +62,16 @@ let userData = {
 //     if (err) throw err;
 //     console.log('sucess')
 // })
+
+
+function sentData (name='abcabc1234') {
+    let userInfo = userData[name];
+    document.getElementById('logName').innerText = `:  ${userInfo.firstname} ${userInfo.lastname}`;
+    document.getElementById('logAge').innerText = `:  ${userInfo.age}`;
+    document.getElementById('logSex').innerText = `:  ${userInfo.sex}`;
+    document.getElementById('logBlood').innerText = `:  ${userInfo.blood}`;
+    document.getElementById('logAllergic').innerText = `:  ${userInfo.allergic}`;
+    document.getElementById('logPhobia').innerText = `:  ${userInfo.phobia}`;
+    document.getElementById('logOther').innerText = `:  ${userInfo.other}`;
+}
+sentData()
