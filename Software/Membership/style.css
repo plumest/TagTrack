@@ -169,6 +169,10 @@
   .mid-row > div:last-child {
     margin: 0;
   }
+
+  #blood-type {
+    text-transform: uppercase;
+  }
   
   .button {
     border: 0;
