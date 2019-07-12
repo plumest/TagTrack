@@ -7,12 +7,12 @@ function getData() {
     }).then((res) => res.json())
     .then((data) => {
       // console.log(data.heartrate)
-      // console.log('before', heart)
+      console.log('before', heart)
       heart = data.heartrate
-      // console.log('after', heart)
+      console.log('after', heart)
     })
 }
-// Heart are nest list off data
+
 let heart = []
 getData()
 
@@ -30,7 +30,7 @@ function drawBasic() {
   data.addColumn('number', 'X');
   data.addColumn('number', 'User');
 
-  // console.log('onDraw', heart)
+  console.log('onDraw', heart)
   data.addRows(heart)
   // Heart are nest list off data
 
