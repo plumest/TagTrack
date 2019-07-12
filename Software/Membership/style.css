@@ -201,3 +201,15 @@
     margin-top: -20px;
     text-align: right;
   }
+
+.regis{
+  text-align: center;
+  color: black;
+}
+
+.bg-regis{
+  background-color: #e8ecef
+}
+
+/* .bg-container{
+} */
