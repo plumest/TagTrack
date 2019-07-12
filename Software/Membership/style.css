@@ -69,9 +69,21 @@
     text-align: center;
     color: #ffffff;
     font-weight: 300;
-    margin: 0 0 40px;
+    margin: 0 0 15px;
+  }
+
+  h4 {
+    text-align: center;
+    color: #ffffff;
+    font-weight: 300;
+    margin: 0 0 30px;
   }
   
+  h5 {
+    color: #ffffff;
+    font-weight: 300;
+  }
+
   label {
     position: absolute;
     -webkit-transform: translateY(6px);
@@ -141,6 +153,20 @@
     margin-right: 4%;
   }
   .top-row > div:last-child {
+    margin: 0;
+  }
+  
+  .mid-row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .mid-row > div {
+    float: left;
+    width: 30.5%;
+    margin-right: 4%;
+  }
+  .mid-row > div:last-child {
     margin: 0;
   }
   
