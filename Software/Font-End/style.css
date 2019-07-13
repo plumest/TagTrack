@@ -1,5 +1,7 @@
 .background{
-    background-image: url(Pic/Sky.jpg);
-    color: wheat;
-    padding-top: 18%
+    /* background-image: url(Pic/Sky.jpg); */
+    color: black;
+    background: #e9ecef;
+    padding-top: 18%;
+    backdrop-filter: 10%;
 }
