@@ -1,5 +1,3 @@
-// const fs = require('fs');
-
 function getHeartList(index=0, heartrate=0) {
     return [index, heartrate]
 }
@@ -10,11 +8,6 @@ function getData () {
     data.push(getHeartList(sec, ))
     return data
 }
-
-// setInterval(() => {
-//     let sec = new Date().getSeconds();
-//     document.getElementById('test').innerHTML = sec;
-// }, 1000)
 
 let userData = {
     'abcabc1234': {
@@ -55,13 +48,21 @@ let userData = {
         'allergic': '',
         'phobia': 'hemophobia',
         'other': ''
+    },
+    'saku39':{
+        'username': 'saku39',
+        'password': '393939',
+        'firstname': 'Sakura',
+        'lastname': 'Miyawaki',
+        'email': 'saku39@izone.com',
+        'age': '21',
+        'sex': 'Female',
+        'blood': 'A',
+        'allergic': '',
+        'phobia': 'hemophobia',
+        'other': ''
     }
 }
-
-// fs.appendFile('abcabc1234', data_tested, (err, fd) => {
-//     if (err) throw err;
-//     console.log('sucess')
-// })
 
 
 function sentData (name='abcabc1234') {

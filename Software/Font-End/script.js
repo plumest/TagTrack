@@ -40,6 +40,19 @@ function checkUser() {
             'allergic': '',
             'phobia': 'hemophobia',
             'other': ''
+        },
+        'saku39':{
+            'username': 'saku39',
+            'password': '393939',
+            'firstname': 'Sakura',
+            'lastname': 'Miyawaki',
+            'email': 'saku39@izone.com',
+            'age': '21',
+            'sex': 'Female',
+            'blood': 'A',
+            'allergic': '',
+            'phobia': 'hemophobia',
+            'other': ''
         }
     }
     let wrong = true;
@@ -48,8 +61,6 @@ function checkUser() {
         if (id === userData[item].username) {
             if (pwd === userData[item].password) {
                 localStorage.setItem('id' , item);
-                let something = localStorage.getItem('id');
-                console.log(something)
                 window.location.href = '../index.html';
                 
             }
@@ -57,7 +68,6 @@ function checkUser() {
     })
 
     if (wrong === true) {
-        // document.getElementById('error').innerText = 'username or password incorrect';
         document.getElementById('username').setCustomValidity('Username or password Incorrect')
     }
 }

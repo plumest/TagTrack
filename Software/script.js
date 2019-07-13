@@ -10,16 +10,22 @@ function getData() {
       console.log('before', heart)
       heart = data.heartrate
       console.log('after', heart)
+      google.charts.load('current', {
+        packages: ['corechart', 'line']
+      });
+      google.charts.setOnLoadCallback(drawBasic);
     })
 }
 
-let heart = []
-getData()
 
-google.charts.load('current', {
-  packages: ['corechart', 'line']
-});
-google.charts.setOnLoadCallback(drawBasic);
+// Real data
+let heart = []
+setInterval(getData , 2000)
+
+// Mock data
+// let heart = [[0,118],[1,195],[2,77],[3,80],[4,187],[5,120],[6,81],[7,148],[8,200],[9,115],[10,94],[11,157],[12,164],[13,70],[14,169],[15,195],[16,86],[17,94],[18,76],[19,91],[20,115],[21,120],[22,88],[23,77],[24,153],[25,82],[26,163],[27,159],[28,157],[29,193],[30,193],[31,135],[32,174],[33,107],[34,74],[35,132],[36,178],[37,185],[38,93],[39,83],[40,190],[41,178],[42,107],[43,184],[44,124],[45,125],[46,99],[47,200],[48,158],[49,162],[50,133],[51,174],[52,77],[53,104],[54,139],[55,173],[56,185],[57,128],[58,74],[59,71]];
+// setInterval(randomHeart, 1000)
+
 
 
 function drawBasic() {
@@ -58,4 +64,16 @@ function drawBasic() {
   let chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 
   chart.draw(data, options);
+}
+
+function randomHeart() {
+  heart.shift()
+  heart.forEach((arr) => arr[0]--)
+  let randomHeartrate = Math.random(70, 200);
+  heart.push([59, randomHeartrate])
+
+  google.charts.load('current', {
+    packages: ['corechart', 'line']
+  });
+  google.charts.setOnLoadCallback(drawBasic);
 }
