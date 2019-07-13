@@ -11,7 +11,6 @@ gc.enable()
 from _thread import start_new_thread as thread
 import time
 
-
 # State gc
 
 # State section
@@ -23,10 +22,12 @@ global c_BPM
 c_BPM = 0
 global BPM
 global samp_size
+global Flag
+Flag = False
 samp_size = 4
 global BPM_limit
 BPM_limit = 200
-BPM = []
+BPM = [[n, -1] for n in range(60)]
 
 #Global runtime
 global global_runtime
@@ -42,6 +43,7 @@ max_threshold = 768
 #Beeper = PWM(Pin(26))
 #Beeper.deinit()
 BP = PWM(Pin(26), freq=0, duty=200)
+BP.duty(0)
 
 print('Global Memory: {}'.format(gc.mem_free()))
 
@@ -106,10 +108,11 @@ def h_read():
     global BPM
     global c_BPM
     global max_threshold
+    global Flag
     reader = 0
     prog_start_milli = int(round(time.time() * 1000))
     reads = [0]
-    n = 0    
+    n = 0
     while True:
         # Calculate Average
         start_milli = int(round(time.time() * 1000)) - prog_start_milli
@@ -129,13 +132,11 @@ def h_read():
 
             elif reader < max_threshold:
                 # No Input
-                light_control('G')
-                print('NO INPUT')
-                n = 0
-                BPM = []
-                reads = []
+                light_control('B')
+                BPM[n][1] = 0 
+                reads = [0]
                 sleep(0.5)
-                continue
+                
             #sleep(0.02)
             sleep(0.02)
 
@@ -146,26 +147,27 @@ def h_read():
         else:
             av = sum(reads)/len(reads)
         reads = []
-        BPM.append([n, av])
+        BPM[n] = [n, av]
         print('Heart Rate: {}'.format(av))
         av = 0
 
-        if n == 59:
-            headers = {'content-type': 'application/json'}
-            mock_data = { 'data' : {
-                            'heartrate': BPM
-                            }
-                        }
-            BPM = []
-            print('Routine Job Executed')
-            # data = {'data': user_data}
-            js = json.dumps(mock_data)
-            gc.collect()
-            res = urequests.request('POST', __ext.BASEURL, headers=headers, data=js)
-            res.close()
-            BPM = []
-            n = 0
-            reads = [0]
+        if n%3 == 0 or n == 59:
+            # headers = {'content-type': 'application/json'}
+            # mock_data = { 'data' : {
+            #                 'heartrate': BPM
+            #                 }
+            #             }
+            # BPM = [[n, 0] for n in range(60)]
+            # print('Routine Job Executed')
+            # # data = {'data': user_data}
+            # js = json.dumps(mock_data)
+            # gc.collect()
+            # res = urequests.request('POST', __ext.BASEURL, headers=headers, data=js)
+            # res.close()
+            Flag = True
+            if n == 59:
+                n = 0
+                reads = [0]
         n = n + 1
         
         sleep(1)
@@ -245,7 +247,7 @@ def h_read():
 def h_pro(mode):
     # User Insert Finger
     if mode == 1:
-        val = random.randint(60, 180)
+        val = random.randint(80, 90)
     if mode == 2:
         val = random.randint(190, 220)
     return val
@@ -278,7 +280,38 @@ def alarmsys(c_BPM):
             light_control('green')
             sleep(0.1)
 
+def send_data():
+    global BPM
+    global Flag
+    while True:
+        if Flag:
+            temp = []
+            # Preprocess
+            for i, data in enumerate(BPM, 0):
+                if data[1] == -1:
+                    temp.append([i, 0])
+                else:
+                    temp.append([i, data[1]])
+            headers = {'content-type': 'application/json'}
+            mock_data = { 'data' : {
+                            'heartrate': temp
+                            }
+                        }
+            del temp
+            print('Routine Job Executed')
+            # data = {'data': user_data}
+            js = json.dumps(mock_data)
+            gc.collect()
+            res = urequests.request('POST', __ext.BASEURL, headers=headers, data=js)
+            res.close()
+            if BPM[-1][1] != -1:
+                print('Reset Time Frame')
+                BPM = [[n, -1] for n in range(60)]
+            Flag = False
+        
+        sleep(0.1)
 
 # Main Execution
 thread(connect, ())
 thread(h_read, ())
+thread(send_data, ())
