@@ -2,9 +2,11 @@
 
 **By Jitrada Group**
 
-* Name : Apiwit Prasittikarnkul ID : 6010506352 CPE
-* Name : Nichapat Nitikhunkasem ID : 6110503240 CPE
-* Name : Tulyawat Muangmanoi    ID : 6110503266 CPE
-* Name : Amrest Chinkamol       ID : 6110503517 CPE
-* Name : Chayathon Khuttiyanon  ID : 6110546381 SKE
-* Name : Wikrom Chanthunkhun    ID : 6110546631 SKE
+| Name |ID|Major|
+|---------------|:-----------:|:-----:|
+| Apiwit Prasittikarnkul | 6010506352 | CPE |
+| Nichapat Nitikhunkasem | 6110503240 | CPE |
+| Tulyawat Muangmanoi    | 6110503266 | CPE |
+| Amrest Chinkamol       | 6110503517 | CPE |
+| Chayathon Khuttiyanon  | 6110546381 | SKE |
+| Wikrom Chanthunkhun    | 6110546631 | SKE |
